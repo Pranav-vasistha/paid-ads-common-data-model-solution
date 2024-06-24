@@ -2,7 +2,7 @@
 
 WITH rename_tiktok AS (
     SELECT
-        __insert_date AS insert_date,
+        TIMESTAMP(CAST(__insert_date AS TIMESTAMP)) AS insert_date,
         ad_id,
         add_to_cart,
         adgroup_id AS adset_id,

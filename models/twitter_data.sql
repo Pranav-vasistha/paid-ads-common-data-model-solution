@@ -2,7 +2,7 @@
 
 WITH rename_twitter AS (
     SELECT
-        __insert_date AS insert_date,
+        TIMESTAMP(CAST(__insert_date AS TIMESTAMP)) AS insert_date,
         campaign_id,
         channel,
         url,

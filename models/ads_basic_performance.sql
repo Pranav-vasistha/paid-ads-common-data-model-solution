@@ -2,7 +2,6 @@
 
 WITH alldata AS (
     SELECT 
-        TIMESTAMP_SECONDS(CAST(insert_date AS INT64)) AS insert_date,
         CAST(ad_id AS STRING) AS ad_id,
         CAST(adset_id AS STRING) AS adset_id,
         CAST(campaign_id AS STRING) AS campaign_id,
@@ -25,7 +24,6 @@ WITH alldata AS (
     FROM {{ ref('bing_data') }}
     UNION ALL
     SELECT 
-        TIMESTAMP_SECONDS(CAST(insert_date AS INT64)) AS insert_date,
         CAST(ad_id AS STRING) AS ad_id,
         CAST(adset_id AS STRING) AS adset_id,
         CAST(campaign_id AS STRING) AS campaign_id,
@@ -48,7 +46,6 @@ WITH alldata AS (
     FROM {{ ref('twitter_data') }}
     UNION ALL
     SELECT 
-        TIMESTAMP_SECONDS(CAST(insert_date AS INT64)) AS insert_date,
         CAST(ad_id AS STRING) AS ad_id,
         CAST(adset_id AS STRING) AS adset_id,
         CAST(campaign_id AS STRING) AS campaign_id,
@@ -71,7 +68,6 @@ WITH alldata AS (
     FROM {{ ref('tiktok_data') }}
     UNION ALL
     SELECT 
-        TIMESTAMP_SECONDS(CAST(insert_date AS INT64)) AS insert_date,
         CAST(ad_id AS STRING) AS ad_id,
         CAST(adset_id AS STRING) AS adset_id,
         CAST(campaign_id AS STRING) AS campaign_id,

@@ -2,7 +2,7 @@
 
 WITH rename_bing AS (
     SELECT
-        __insert_date AS insert_date,
+        TIMESTAMP(CAST(__insert_date AS TIMESTAMP)) AS insert_date,
         ad_id,
         adset_id,
         campaign_id,

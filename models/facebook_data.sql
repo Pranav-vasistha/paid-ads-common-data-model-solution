@@ -33,7 +33,7 @@ WITH rename_facebook AS (
 ),
 facebook_data AS (
     SELECT
-        NULL AS insert_date,
+        TIMESTAMP(CAST(NULL AS TIMESTAMP)) AS insert_date,
         ad_id,
         adset_id,
         campaign_id,
