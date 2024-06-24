@@ -1,17 +1,17 @@
 -- models/ads_basic_performance.sql
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 with bing as (
-    select * from {{ ref('src_ads_bing_all_data') }}
+    select * from {{ ref('bing_data') }}
 ),
 facebook as (
-    select * from {{ ref('src_ads_creative_facebook_all_data') }}
+    select * from {{ ref('facebook_data') }}
 ),
 tiktok as (
-    select * from {{ ref('src_ads_tiktok_ads_all_data') }}
+    select * from {{ ref('tiktok_data') }}
 ),
 twitter as (
-    select * from {{ ref('src_promoted_tweets_twitter_all_data') }}
+    select * from {{ ref('twitter_data') }}
 )
 
 select * from bing
