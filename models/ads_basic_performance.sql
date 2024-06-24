@@ -56,7 +56,7 @@ WITH alldata AS (
         CAST(channel AS STRING) AS channel,
         CAST(creative_title AS STRING) AS creative_title,
         CAST(clicks AS INT64) AS clicks,
-        PARSE_DATE('%d-%m-%Y', date) AS date,
+        date,
         CAST(impressions AS INT64) AS impressions,
         CAST(revenue AS INT64) AS revenue,
         CAST(spend AS INT64) AS spend,
