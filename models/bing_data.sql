@@ -4,7 +4,7 @@ WITH rename_bing AS (
     SELECT
         __insert_date AS insert_date,
         ad_id,
-        adgroup_id AS adset_id,
+        adset_id,
         campaign_id,
         channel,
         ad_description AS creative_title,
@@ -20,8 +20,8 @@ WITH rename_bing AS (
         0 AS engagement_cost,
         ROUND(spend / NULLIF(conv, 0), 2) AS conversion_cost,
         ROUND(spend / NULLIF(clicks, 0), 2) AS cpc,
-        ROUND((clicks / NULLIF(impressions, 0)) * 100, 2) AS ctr,
-        ROUND(spend / NULLIF(impressions, 0), 2) AS cpi,
+        ROUND((clicks / NULLIF(imps, 0)) * 100, 2) AS ctr,
+        ROUND(spend / NULLIF(imps, 0), 2) AS cpi,
         0 AS engagement_rate,
         0 AS video_views
     FROM 
