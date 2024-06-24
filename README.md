@@ -1,6 +1,6 @@
 Welcome to Marketing common data modelling challenge's solution!!
 
-# adding new data
+# Adding new data
 - First either upload the csv with relevant name, either in same for same media apps, or if new then put the csv file down
 or call using API in seeds folder.
 
@@ -9,11 +9,11 @@ to be integrated with others by following the template of all other sql Models
 
 -Finally  in the ads_basic_performance.sql, which is the main table in bigquery + looker, call relevant fields from the schema created.
 
-# bigquery
+# BigQuery
 
 - Hit dbt run, if no error data has been pushed to query in relevant table and we can now jump to looker
 
-# looker
+# Looker
 
 - Cross check all are functioning right, and addd calculated fields if necessary.
 
