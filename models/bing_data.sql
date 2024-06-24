@@ -17,7 +17,7 @@ WITH rename_bing AS (
         spend,
         conv AS conversions
     FROM 
-        `paid-ads-model`.`dbt_pvasistha`.`src_ads_bing_all_data`
+        {{ ref('src_ads_bing_ads_all_data') }}
 ),
 bing_data AS (
     SELECT
