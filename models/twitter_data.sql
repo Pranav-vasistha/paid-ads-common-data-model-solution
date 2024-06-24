@@ -9,16 +9,16 @@ WITH rename_twitter AS (
         text AS creative_title,
         clicks,
         comments,
+        date,
         engagements as engagement,
         impressions,
         likes,
-        url_clicks,
         retweets,
         spend,
         video_total_views AS video_views,
-        0 AS conversions  -- Setting conversions to 0
+        url_clicks AS conversions  -- Setting conversions to 0
     FROM 
-        `paid-ads-model`.`dbt_pvasistha`.`src_promoted_tweets_twitter_all_data`
+        {{ ref('src_promoted_tweets_twitter_all_data') }}
 ),
 twitter_data AS (
     SELECT
@@ -29,7 +29,7 @@ twitter_data AS (
         channel,
         creative_title,
         clicks,
-        `date` AS `date`, -- Ensure to use backticks around `date`
+        date, -- Use `date` directly
         impressions,
         NULL AS revenue,
         spend,

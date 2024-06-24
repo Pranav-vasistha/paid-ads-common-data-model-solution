@@ -1,23 +1,30 @@
--- models/ads_basic_performance.sql
-{{ config(materialized='table') }}
-
-WITH bing AS (
-    SELECT * FROM {{ ref('bing_data') }}
-),
-facebook AS (
-    SELECT * FROM {{ ref('facebook_data') }}
-),
-tiktok AS (
-    SELECT * FROM {{ ref('tiktok_data') }}
-),
-twitter AS (
-    SELECT * FROM {{ ref('twitter_data') }}
-)
-
-SELECT * FROM bing
-UNION ALL
-SELECT * FROM facebook
-UNION ALL
-SELECT * FROM tiktok
-UNION ALL
-SELECT * FROM twitter
+SELECT 
+    insert_date,
+    ad_id,
+    adset_id,
+    campaign_id,
+    channel,
+    creative_title,
+    clicks,
+    date,
+    impressions,
+    revenue,
+    spend,
+    conversions,
+    engagement,
+    engagement_cost,
+    conversion_cost,
+    cpc,
+    ctr,
+    cpi,
+    engagement_rate,
+    video_views
+FROM (
+    SELECT * FROM bing_data
+    UNION ALL
+    SELECT * FROM facebook_data
+    UNION ALL
+    SELECT * FROM twitter_data
+    UNION ALL
+    SELECT * FROM tiktok_data
+) AS ads_basic_performance
