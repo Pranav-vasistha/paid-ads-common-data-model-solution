@@ -24,13 +24,13 @@ SELECT
     CAST(engagement_rate AS FLOAT64) AS engagement_rate,
     CAST(video_views AS INT64) AS video_views
 FROM (
-    bing_data
+    {{ ref('bing_data') }}
     UNION
-    facebook_data
+    {{ ref('twitter_data') }}
     UNION
-    twitter_data
+    {{ ref('tiktok_data') }}
     UNION
-    tiktok_data
+    {{ ref('facebook_data') }}
 )
 
 SELECT * FROM alldata
