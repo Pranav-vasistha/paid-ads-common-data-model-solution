@@ -26,8 +26,8 @@ WITH rename_facebook AS (
         shares,
         spend,
         purchase,
-        (likes + comments + inline_link_clicks + shares) AS engagement,
-        (complete_registration + mobile_app_install + purchase) AS conversions
+        (likes + comments + inline_link_clicks + shares + views) AS engagement,
+        (complete_registration + mobile_app_install + purchase + purchase_value + inline_link_clicks) AS conversions
     FROM 
         {{ ref('src_ads_creative_facebook_all_data') }}
 ),

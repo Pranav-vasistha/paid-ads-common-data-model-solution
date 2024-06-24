@@ -16,7 +16,7 @@ WITH rename_twitter AS (
         retweets,
         spend,
         video_total_views AS video_views,
-        url_clicks AS conversions  -- Setting conversions to 0
+        NULL AS conversions  -- Setting conversions to 0
     FROM 
         {{ ref('src_promoted_tweets_twitter_all_data') }}
 ),

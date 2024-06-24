@@ -19,7 +19,7 @@ WITH rename_tiktok AS (
         spend,
         video_views,
         NULL AS engagement, -- Engagement defined as sum of installs and registrations
-        (conversions + skan_conversion+rt_installs+skan_app_install) AS conversions -- Conversions defined as sum of conversions and skan_conversion
+        (conversions + skan_conversion) AS conversions -- Conversions defined as sum of conversions and skan_conversion
     FROM 
         {{ ref('src_ads_tiktok_ads_all_data') }}
 ),
