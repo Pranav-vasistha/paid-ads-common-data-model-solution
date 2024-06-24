@@ -17,10 +17,9 @@ WITH bing_data AS (
         conv AS conversions,
         0 AS engagement_cost,  -- No engagements value, setting to 0
         ROUND(spend / NULLIF(conv, 0), 2) AS conversion_cost,
-        impressions AS impressions_by_channel,
         ROUND(spend / NULLIF(clicks, 0), 2) AS cpc,
         ROUND((clicks / NULLIF(impressions, 0)) * 100, 2) AS ctr,
-        ROUND((spend / NULLIF(impressions, 0)) * 100, 2) AS cpi,
+        ROUND(spend / NULLIF(impressions, 0), 2) AS cpi,
         0 AS engagement_rate  -- No engagements value, setting to 0
     FROM 
         {{ ref('src_ads_bing_all_data') }}
