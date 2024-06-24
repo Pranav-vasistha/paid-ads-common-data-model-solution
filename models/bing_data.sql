@@ -36,7 +36,7 @@ bing_data AS (
         channel,
         creative_title,
         clicks,
-        date,
+        FORMAT_DATE('%Y-%m-%d', CAST(date AS DATE)) AS date,
         impressions,
         revenue,
         spend,

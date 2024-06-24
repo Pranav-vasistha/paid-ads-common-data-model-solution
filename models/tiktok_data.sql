@@ -32,7 +32,7 @@ tiktok_data AS (
         channel,
         NULL AS creative_title,
         clicks,
-        date,
+        FORMAT_DATE('%Y-%m-%d', CAST(date AS DATE)) AS date,
         impressions,
         NULL AS revenue,
         spend,

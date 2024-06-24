@@ -29,7 +29,7 @@ twitter_data AS (
         channel,
         creative_title,
         clicks,
-        date, -- Use `date` directly
+        FORMAT_DATE('%Y-%m-%d', CAST(date AS DATE)) AS date,
         impressions,
         NULL AS revenue,
         spend,
