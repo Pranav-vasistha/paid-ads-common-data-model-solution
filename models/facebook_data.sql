@@ -13,7 +13,7 @@ WITH rename_facebook AS (
         buying_type,
         campaign_type,
         creative_body AS ad_description,
-        FORMAT_DATE('%Y-%m-%d', CAST(date AS DATE)) AS date,
+        PARSE_DATE('%d-%m-%Y', date) AS date,
         likes,
         comments,
         views AS video_views,
