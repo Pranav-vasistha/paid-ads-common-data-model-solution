@@ -27,23 +27,24 @@ tiktok_data AS (
     SELECT
         insert_date,
         ad_id,
-        add_to_cart,
         adset_id,
         campaign_id,
         channel,
+        NULL AS creative_title,
         clicks,
         date,
         impressions,
-        ad_status,
-        creative_body,
+        NULL AS revenue,
         spend,
-        video_views,
+        conversions,
+        engagement,
+        ROUND(spend / NULLIF(engagement, 0), 2) AS engagement_cost,
+        ROUND(spend / NULLIF(conversions, 0), 2) AS conversion_cost,
         ROUND(spend / NULLIF(clicks, 0), 2) AS cpc,
         ROUND((clicks / NULLIF(impressions, 0)) * 100, 2) AS ctr,
         ROUND(spend / NULLIF(impressions, 0), 2) AS cpi,
         ROUND((engagement / NULLIF(impressions, 0)) * 100, 2) AS engagement_rate,
-        ROUND(spend / NULLIF(engagement, 0), 2) AS engagement_cost,
-        ROUND(spend / NULLIF(conversions, 0), 2) AS conversion_cost
+        video_views
     FROM
         rename_tiktok
 )
