@@ -45,4 +45,4 @@ bing_data AS (
         rename_bing
 )
 
-SELECT * FROM bing_dat
+SELECT * FROM bing_data
