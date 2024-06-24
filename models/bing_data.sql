@@ -17,7 +17,7 @@ WITH rename_bing AS (
         spend,
         conv AS conversions
     FROM 
-        {{ ref('src_ads_bing_ads_all_data') }}
+        {{ ref('src_ads_bing_all_data') }}
 ),
 bing_data AS (
     SELECT
@@ -45,4 +45,4 @@ bing_data AS (
         rename_bing
 )
 
-SELECT * FROM bing_data
+SELECT * FROM bing_dat
