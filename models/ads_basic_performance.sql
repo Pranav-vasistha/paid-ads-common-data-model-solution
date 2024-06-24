@@ -1,5 +1,6 @@
-CREATE OR REPLACE VIEW `paid-ads-model`.`dbt_pvasistha_Paid_ads_test`.`ads_basic_performance`
-OPTIONS()
+{{ config(materialized='view') }}
+
+WITH alldata
 AS 
 SELECT 
     CAST(insert_date AS DATETIME) AS insert_date,
@@ -23,11 +24,13 @@ SELECT
     CAST(engagement_rate AS FLOAT64) AS engagement_rate,
     CAST(video_views AS INT64) AS video_views
 FROM (
-    SELECT * FROM `paid-ads-model`.`dbt_pvasistha_Paid_ads_test`.`bing_data`
-    UNION ALL
-    SELECT * FROM `paid-ads-model`.`dbt_pvasistha_Paid_ads_test`.`facebook_data`
-    UNION ALL
-    SELECT * FROM `paid-ads-model`.`dbt_pvasistha_Paid_ads_test`.`twitter_data`
-    UNION ALL
-    SELECT * FROM `paid-ads-model`.`dbt_pvasistha_Paid_ads_test`.`tiktok_data`
-) AS ads_basic_performance
+    bing_data
+    UNION
+    facebook_data
+    UNION
+    twitter_data
+    UNION
+    tiktok_data
+)
+
+SELECT * FROM alldata
