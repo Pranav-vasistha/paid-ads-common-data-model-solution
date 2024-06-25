@@ -2,6 +2,8 @@ Welcome to Marketing common data modelling challenge's solution!!
 
 Looker studio Link - https://lookerstudio.google.com/reporting/5947fbbe-9611-43b2-9f54-9cc30138036b
 
+Overview of this repo and connections - https://youtu.be/KviIkObbmCQ
+
 # Adding new data
 - First either upload the csv with relevant name, either in same for same media apps, or if new then put the csv file down
 or call using API in seeds folder.
